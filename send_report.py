@@ -63,4 +63,6 @@ def main(argv):
    body = email_body
    myemail.mail(receiver, subject, body)
 if __name__ == "__main__":
+   for item in sys.argv:
+       print item
    main(sys.argv[1:])

@@ -98,7 +98,7 @@ def get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Ve
 def describe_VServerGroups():
     Action = 'DescribeVServerGroups'
     user_param = {'RegionId': 'cn-shenzhen',
-                  'LoadBalancerId': 'lb-wz9726knlldtqsdfu5oqu',
+                  'LoadBalancerId': 'lb-wz9wbgk1pqnoaq5hg03lk',
                   'IncludeRule': 'true',
                   'IncludeListener': 'true'
                   }
@@ -112,7 +112,7 @@ def describe_VServerGroups():
 def modify_VServerGroupBackendServers(OldBackendServers,NewBackendServers):
     Action = 'ModifyVServerGroupBackendServers'
     user_param = {'RegionId': 'cn-shenzhen',
-                  'VServerGroupId': 'rsp-wz9yagr8d02lu',
+                  'VServerGroupId': 'rsp-wz9n8wo74rdtg',
                   'OldBackendServers': OldBackendServers,
                   'NewBackendServers': NewBackendServers,
                   }
@@ -128,8 +128,8 @@ if __name__=='__main__':
 
     OldBackendServers=''
     OldBackendServers=''
-    new_master_host='10.128.146.195'
-    if new_master_host=='10.128.146.185':
+    new_master_host='172.16.2.196'
+    if new_master_host=='172.16.3.122':
         OldBackendServers = '[{ "ServerId": "i-wz949h0dw8516dvkwd2o",' \
                             '"Weight": "100",' \
                             '"Type": "ecs",' \
@@ -138,7 +138,7 @@ if __name__=='__main__':
                             '"Weight": "100",' \
                             '"Type": "ecs",' \
                             '"Port":"3306"}]'
-    elif new_master_host=='10.128.146.195':
+    elif new_master_host=='172.16.2.196':
         OldBackendServers = '[{ "ServerId": "i-wz96dai3e434sqzii3tb",' \
                             '"Weight": "100",' \
                             '"Type": "ecs",' \

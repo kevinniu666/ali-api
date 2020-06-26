@@ -12,12 +12,12 @@ def main(argv):
    try:
       opts, args = getopt.getopt(argv,"ho:n:s:S:b:c:",["orig_master_host=","new_master_host=","new_slave_hosts=","subject=","body=","conf="])
    except getopt.GetoptError as e:
-      print "send_report.py --orig_master_host=<dead master's hostname> --new_master_host=<new master's hostname> --new_slave_hosts=<new slaves' hostnames, delimited by commas> --subject=(mail subject) --body=(body)"
+      print "send_report.py --orig_master_host=<dead master's hostname> --new_master_host=<new master's hostname> --new_slave_hosts=<new slaves' hostnames, delimited by commas> --subject=(mail subject) --body=(body) --conf=(mha config file)"
       print e
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print "send_report.py --orig_master_host=<dead master's hostname> --new_master_host=<new master's hostname> --new_slave_hosts=<new slaves' hostnames, delimited by commas> --subject=(mail subject) --body=(body)"
+         print "send_report.py --orig_master_host=<dead master's hostname> --new_master_host=<new master's hostname> --new_slave_hosts=<new slaves' hostnames, delimited by commas> --subject=(mail subject) --body=(body) --conf=(mha config file)"
          sys.exit()
       elif opt in ("-o", "--orig_master_host"):
          orig_master_host = arg
@@ -40,7 +40,7 @@ def main(argv):
    NewBackendServers = ''
    OldBackendServers = ''
    # new_master_host = '10.128.146.185'
-   if new_master_host == '10.128.146.185':
+   if new_master_host == '172.16.3.122':
       OldBackendServers = '[{ "ServerId": "i-wz949h0dw8516dvkwd2o",' \
                           '"Weight": "100",' \
                           '"Type": "ecs",' \
@@ -49,7 +49,7 @@ def main(argv):
                           '"Weight": "100",' \
                           '"Type": "ecs",' \
                           '"Port":"3306"}]'
-   elif new_master_host == '10.128.146.195':
+   elif new_master_host == '172.16.2.196':
       OldBackendServers = '[{ "ServerId": "i-wz96dai3e434sqzii3tb",' \
                           '"Weight": "100",' \
                           '"Type": "ecs",' \
@@ -62,7 +62,7 @@ def main(argv):
    #发送邮件给运维人员
    current_path = os.path.abspath('.')
    # attachment = os.path.join(current_path, 'pie.xlsx')
-   receiver = ['liuwenlongfox@163.com', '624458777@qq.com']
+   receiver = ['624458777@qq.com']
    subject = email_subject
    body = email_body
    myemail.mail(receiver, subject, body)

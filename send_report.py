@@ -8,8 +8,9 @@ def main(argv):
    new_slave_hosts=''
    email_subject=''
    email_body=''
+   conf=''
    try:
-      opts, args = getopt.getopt(argv,"ho:n:s:S:b:",["orig_master_host=","new_master_host=","new_slave_hosts=","subject=","body="])
+      opts, args = getopt.getopt(argv,"ho:n:s:S:b:c:",["orig_master_host=","new_master_host=","new_slave_hosts=","subject=","body=","conf="])
    except getopt.GetoptError:
       print "send_report.py --orig_master_host=<dead master's hostname> --new_master_host=<new master's hostname> --new_slave_hosts=<new slaves' hostnames, delimited by commas> --subject=(mail subject) --body=(body)"
       sys.exit(2)
@@ -27,6 +28,8 @@ def main(argv):
          email_subject = arg
       elif opt in ("-b", "--body"):
          email_body = arg
+      elif opt in ("-c", "--conf"):
+         conf = arg
    print '原来的master地址为：', orig_master_host
    print '新的master地址为：', new_master_host
    print '新的slave地址为: ', new_slave_hosts

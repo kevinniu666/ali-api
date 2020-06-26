@@ -104,8 +104,8 @@ def describe_VServerGroups():
                   }
     server_url = 'slb.aliyuncs.com'
     Version = '2014-05-15'
-    AccessKeySecret='YnlZkxp70GsY8MWycL8LTqrXGhTNmS'
-    AccessKeyId='LTAI4FssM2XevQUQCiKp3P4C'
+    AccessKeySecret='hldIvCwDIgwg4Zc2lZimaaTL4AAZvK'
+    AccessKeyId='LTAI4GAXUGonK6WtjG2dmjuA'
     message = get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Version)
     print "======================%s" %message
     print json.dumps(message.content)
@@ -118,8 +118,8 @@ def modify_VServerGroupBackendServers(OldBackendServers,NewBackendServers):
                   }
     server_url = 'slb.aliyuncs.com'
     Version = '2014-05-15'
-    AccessKeySecret='YnlZkxp70GsY8MWycL8LTqrXGhTNmS'
-    AccessKeyId='LTAI4FssM2XevQUQCiKp3P4C'
+    AccessKeySecret='hldIvCwDIgwg4Zc2lZimaaTL4AAZvK'
+    AccessKeyId='LTAI4GAXUGonK6WtjG2dmjuA'
     message = get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Version)
     print "======================%s" %message
     print json.dumps(message.content)
@@ -128,7 +128,7 @@ if __name__=='__main__':
 
     OldBackendServers=''
     OldBackendServers=''
-    new_master_host='10.128.146.185'
+    new_master_host='10.128.146.195'
     if new_master_host=='10.128.146.185':
         OldBackendServers = '[{ "ServerId": "i-wz949h0dw8516dvkwd2o",' \
                             '"Weight": "100",' \

@@ -35,7 +35,7 @@ def main(argv):
    #切换阿里云的SLB后端服务组
    NewBackendServers = ''
    OldBackendServers = ''
-   new_master_host = '10.128.146.185'
+   # new_master_host = '10.128.146.185'
    if new_master_host == '10.128.146.185':
       OldBackendServers = '[{ "ServerId": "i-wz949h0dw8516dvkwd2o",' \
                           '"Weight": "100",' \
@@ -57,7 +57,7 @@ def main(argv):
    slb.modify_VServerGroupBackendServers(OldBackendServers, NewBackendServers)
    #发送邮件给运维人员
    current_path = os.path.abspath('.')
-   attachment = os.path.join(current_path, 'pie.xlsx')
+   # attachment = os.path.join(current_path, 'pie.xlsx')
    receiver = ['liuwenlongfox@163.com', '624458777@qq.com']
    subject = email_subject
    body = email_body

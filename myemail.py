@@ -40,7 +40,7 @@ def mail(to, subject, body, attachment=None):
 if __name__=='__main__':
 
     current_path = os.path.abspath('.')
-    attachment = os.path.join(current_path, 'pie.xlsx')
+    #attachment = os.path.join(current_path, 'pie.xlsx') #可以添加附件
     receiver = ['user@163.com', '12345678@qq.com']
     subject = '[告警]mha已经迁移到另外一个节点'
     body = 'mha已经迁移到另外一个节点'

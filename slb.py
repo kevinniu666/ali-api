@@ -97,54 +97,29 @@ def get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Ve
 
 def describe_VServerGroups():
     Action = 'DescribeVServerGroups'
-    user_param = {'RegionId': 'cn-shenzhen',
-                  'LoadBalancerId': 'lb-wz9wbgk1pqnoaq5hg03lk',
+    user_param = {'RegionId': 'cn-shenzhen', #阿里云SLB所在的区域
+                  'LoadBalancerId': 'lb-wz9***q5hg03lk', #阿里云SLB的ID
                   'IncludeRule': 'true',
                   'IncludeListener': 'true'
                   }
     server_url = 'slb.aliyuncs.com'
     Version = '2014-05-15'
-    AccessKeySecret='hldIvCwDIgwg4Zc2lZimaaTL4AAZvK'
-    AccessKeyId='LTAI4GAXUGonK6WtjG2dmjuA'
+    AccessKeySecret='hldI********TL4AAZvK' #阿里云的AK Secret
+    AccessKeyId='LTAI4GA*********dmjuA' #阿里云的AK ID
     message = get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Version)
     print "======================%s" %message
     print json.dumps(message.content)
 def modify_VServerGroupBackendServers(OldBackendServers,NewBackendServers):
     Action = 'ModifyVServerGroupBackendServers'
     user_param = {'RegionId': 'cn-shenzhen',
-                  'VServerGroupId': 'rsp-wz9n8wo74rdtg',
+                  'VServerGroupId': 'rsp-wz9n8*****rdtg', #虚拟服务器组的ＩＤ
                   'OldBackendServers': OldBackendServers,
                   'NewBackendServers': NewBackendServers,
                   }
     server_url = 'slb.aliyuncs.com'
     Version = '2014-05-15'
-    AccessKeySecret='hldIvCwDIgwg4Zc2lZimaaTL4AAZvK'
-    AccessKeyId='LTAI4GAXUGonK6WtjG2dmjuA'
+    AccessKeySecret='hldI********TL4AAZvK' #阿里云的AK Secret
+    AccessKeyId='LTAI4GA*********dmjuA' #阿里云的AK ID
     message = get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Version)
     print "======================%s" %message
     print json.dumps(message.content)
-
-if __name__=='__main__':
-
-    OldBackendServers=''
-    OldBackendServers=''
-    new_master_host='172.16.2.196'
-    if new_master_host=='172.16.3.122':
-        OldBackendServers = '[{ "ServerId": "i-wz949h0dw8516dvkwd2o",' \
-                            '"Weight": "100",' \
-                            '"Type": "ecs",' \
-                            '"Port":"3306"}]'
-        NewBackendServers = '[{ "ServerId": "i-wz96dai3e434sqzii3tb",' \
-                            '"Weight": "100",' \
-                            '"Type": "ecs",' \
-                            '"Port":"3306"}]'
-    elif new_master_host=='172.16.2.196':
-        OldBackendServers = '[{ "ServerId": "i-wz96dai3e434sqzii3tb",' \
-                            '"Weight": "100",' \
-                            '"Type": "ecs",' \
-                            '"Port":"3306"}]'
-        NewBackendServers = '[{ "ServerId": "i-wz949h0dw8516dvkwd2o",' \
-                            '"Weight": "100",' \
-                            '"Type": "ecs",' \
-                            '"Port":"3306"}]'
-    modify_VServerGroupBackendServers(OldBackendServers,NewBackendServers)

@@ -62,7 +62,7 @@ def main(argv):
    #发送邮件给运维人员
    current_path = os.path.abspath('.')
    # attachment = os.path.join(current_path, 'pie.xlsx')
-   receiver = ['624458777@qq.com']
+   receiver = ['12345678@qq.com'] #告警邮件接收人
    subject = email_subject
    body = email_body
    myemail.mail(receiver, subject, body)

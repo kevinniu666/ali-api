@@ -104,8 +104,8 @@ def describe_VServerGroups():
                   }
     server_url = 'slb.aliyuncs.com'
     Version = '2014-05-15'
-    AccessKeySecret='hldI********TL4AAZvK' #阿里云的AK Secret
-    AccessKeyId='LTAI4GA*********dmjuA' #阿里云的AK ID
+    AccessKeySecret='********' #阿里云的AK Secret
+    AccessKeyId='*********' #阿里云的AK ID
     message = get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Version)
     print "======================%s" %message
     print json.dumps(message.content)
@@ -118,8 +118,8 @@ def modify_VServerGroupBackendServers(OldBackendServers,NewBackendServers):
                   }
     server_url = 'slb.aliyuncs.com'
     Version = '2014-05-15'
-    AccessKeySecret='hldI********TL4AAZvK' #阿里云的AK Secret
-    AccessKeyId='LTAI4GA*********dmjuA' #阿里云的AK ID
+    AccessKeySecret='********' #阿里云的AK Secret
+    AccessKeyId='*********' #阿里云的AK ID
     message = get_regions(server_url, Action, user_param, AccessKeySecret, AccessKeyId, Version)
     print "======================%s" %message
     print json.dumps(message.content)
